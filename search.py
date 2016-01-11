@@ -1,6 +1,6 @@
 # Requires Parallel to be installed
 # Use the below command to start with all available cores used
-# seq `nproc` | parallel -u python script.py
+# seq `nproc` | parallel -u python search.py
 
 __authors__ = ['Chick3nputer', 'Supersam654']
 
