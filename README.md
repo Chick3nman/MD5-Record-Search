@@ -2,11 +2,13 @@
 Searches for MD5's that break records show here: http://0xf.kr/md5/
 
 Requires Parallel to be installed to run multiple threads simultaneously.
-$ apt-get update
-$ apt-get install parallel
+
+'$ apt-get update'
+'$ apt-get install parallel'
 
 Run with the command below to use all available cores
-$ seq `nproc` | parallel -u python script.py
+
+'$ seq `nproc` | parallel -u python script.py'
 
 The Plaintext strings generate have "Chick3nman-" prepended to them by default, this can be changed to fit whatever string you would like.
 
