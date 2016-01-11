@@ -4,6 +4,7 @@ Searches for MD5's that break records show here: http://0xf.kr/md5/
 Requires Parallel to be installed to run multiple threads simultaneously.
 
 `$ apt-get update`
+
 `$ apt-get install parallel`
 
 Run with the command below to use all available cores
