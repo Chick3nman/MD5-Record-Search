@@ -1,6 +1,4 @@
-# Requires Parallel to be installed
-# Use the below command to start with all available cores used
-# seq `nproc` | parallel -u python search.py
+# seq `nproc` | parallel -u python script.py
 
 __authors__ = ['Chick3nputer', 'Supersam654']
 
@@ -10,7 +8,7 @@ import hashlib
 from random import shuffle
 from sys import argv
 
-chars = string.ascii_uppercase + string.digits + string.ascii_lowercase
+chars = "0123456789abcdef"
 
 def generate_strings(size):
     alphabet = list(chars * size)
@@ -30,13 +28,13 @@ def work():
     # Start both not at 0 and 128 to avoid a lot of startup noise.
     max_ones = 109
     min_ones = 19
-    rand_length = 32 - len("Chick3nman-")
+    rand_length = 32
     i = 0
     for combo in generate_strings(rand_length):
         i += 1
         if i % 100000000 == 0:
             print "Processed %d hashes." % i
-        clear = "Chick3nman-" + combo
+        clear = combo
         hashhex = hashlib.md5(clear).hexdigest()
 
         ones_count = bin(int(hashhex, 16))[2:].count('1')
@@ -63,12 +61,11 @@ def work():
         base_distance = edit_distance(hashhex, '0123456789abcdeffedcba9876543210')
         if base_distance < 20:
             print "New BASE Hash Found %s:%s" % (hashhex, clear)
-
-        # Can't prefix with Chick3nman and do this one.
-        # fp_distance = edit_distance(clear, hashhex)
-        # if fp_distance < 28:
-        #     print "New FP Hash Found %s:%s" %s:%s" % (hashhex, clear)
+            
+        fp_distance = edit_distance(clear, hashhex)
+        if fp_distance < 26:
+            print "New FP Hash Found %s:%s" % (hashhex, clear)
 
 if __name__ == '__main__':
-    print "Starting worker %s" % argv[1]
+    print "Starting worker"
     work()
