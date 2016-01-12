@@ -11,7 +11,6 @@ Run with the command below to use all available cores
 
 `$ seq 'nproc' | parallel -u python script.py'`
 
-The Plaintext strings generate have "Chick3nman-" prepended to them by default, this can be changed to fit whatever string you would like.
 
 A newly found record can be submitted via the API on http://0xf.kr/md5/
 
