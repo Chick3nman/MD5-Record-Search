@@ -1,5 +1,5 @@
 # MD5-Record-Search
-Searches for MD5's that break records show here: http://0xf.kr/md5/
+Searches for MD5's that break records shown here: http://0xf.kr/md5/
 
 A newly found record can be submitted via the API on http://0xf.kr/md5/
 
