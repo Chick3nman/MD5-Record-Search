@@ -1,10 +1,11 @@
-# seq `nproc` | parallel -u python script.py
 
 __authors__ = ['Chick3nputer', 'Supersam654']
 
 from itertools import islice, product
 import string
 import hashlib
+import multiprocessing
+from multiprocessing import Process
 from random import shuffle
 from sys import argv
 
@@ -67,5 +68,8 @@ def work():
             print "New FP Hash Found %s:%s" % (hashhex, clear)
 
 if __name__ == '__main__':
-    print "Starting worker"
-    work()
+    count = multiprocessing.cpu_count()
+    for i in range(0, count):
+        p = Process(target=work)
+        p.start()
+        print "Starting worker %s" % (i+1)
